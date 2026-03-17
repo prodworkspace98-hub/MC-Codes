@@ -1,8 +1,4 @@
-import './navigation.js';
-import './promo-engine.js';
-import './form-handler.js';
-import './services-engine.js';
-import './testimonials-engine.js';
+import './navigation';
 
 function loadComponent(id, file) {
   fetch(`/components/${file}`)
