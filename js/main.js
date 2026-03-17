@@ -1,4 +1,4 @@
-import './navigation';
+import './navigation.js';
 
 function loadComponent(id, file) {
   fetch(`/components/${file}`)
