@@ -198,6 +198,7 @@ header img {
 /* ------------------------------ */
 
 .btn {
+  height: 8rem;
   text-align: center;
   padding: 2rem 3.5rem;
   border-radius: 1.4rem;
@@ -258,7 +259,8 @@ header img {
   min-width: 100%;
   margin-inline: auto;
   text-align: center;
-  gap: 1.2rem
+  gap: 1.2rem;
+  padding-block: 18.5rem;
 }
 
 .text-content .Sub-heading {
@@ -410,16 +412,19 @@ header img {
     right: 0;
     top: 13rem;
     width: 100%;
-    padding: 0;
+    height: calc(100vh - 16rem);
+    padding-inline: 4rem;
     transition: 350ms all ease-in;
     transform: translateX(100%);
     opacity: 0;
+    background-color: var(--Color1-Pure-Primary);
   }
 
   ul.mb-nav li {
     display: inline-block;
     width: 100%;
     padding-block: 1.1rem;
+    padding-inline: 4rem;
     margin: 0;
     border-bottom: 2px solid var(--Primary);
   }
@@ -476,6 +481,22 @@ header img {
     top: 50%;
     transform: translate(0) rotate(-45deg);
     transition: 450ms all ease-in;
+  }
+  .Header-Section{
+    padding-inline:2rem ;
+  }
+
+  .text-content{
+    padding-block: 0;
+    max-width: 100%;
+  }
+  .text-content p,
+  .text-content h2{
+    padding-inline:8rem;
+  }
+  .text-content h1,
+  .text-content .Sub-heading{
+    font-size: calc(var(--fs-Large-20) + 4rem);
   }
 }
 
