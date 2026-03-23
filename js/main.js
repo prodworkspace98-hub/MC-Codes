@@ -1,9 +1,7 @@
-import { loadComponent } from './core/component-loader.js';
-import './navigation.js';
-
+import { loadComponent } from "./core/component-loader.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await loadComponent("navbar", "navbar.html");
   await loadComponent("hero", "hero.html");
-
+  await loadComponent("about", "about.html");
 });
