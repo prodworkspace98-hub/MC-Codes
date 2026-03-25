@@ -1,7 +1,6 @@
 export async function loadComponent(id, file) {
   try {
     const element = document.getElementById(id);
-
     if (!element) return;
 
     const res = await fetch(`/components/${file}`);

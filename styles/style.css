@@ -9,7 +9,7 @@
   --Secondary: #7C86FF;
   --Tertiary: #C27AFF;
   --Gray: #D4D4D8;
-  --Main:#18181B;
+  --Main: #18181B;
 
   --dark-blue: hsl(234, 12%, 34%);
   --grayish-blue: hsl(229, 6%, 66%);
@@ -240,53 +240,56 @@ header img {
   text-align: center;
   font-family: Inter;
   font-size: calc(var(--fs-Large-20) + 4rem);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-bold); 
   line-height: calc(var(--fs-Large-20) + 4rem);
-  margin-block-start: 5rem;
+  margin-block: 5rem;
 }
 
 .container {
-  padding: 12rem 52rem 0 52rem;
+  padding: 12rem 22rem 0 22rem;
   width: 100%;
-  margin-inline:auto;
+  margin-inline: auto;
 }
 
-.block-content{
+.block-content {
   padding: 48px 48px;
   border-radius: 1.4rem;
-  background: var(--Main);
+  background: var(--Primary);
   margin-block: 5rem;
-   width: 100%;
-  min-width:120rem;
-  margin-inline:auto;
+  width: 100%;
+  min-width: 120rem;
+  max-width: 145rem;
+  margin-inline: auto;
+  box-shadow: 0 5px 0 0 var(--Main);
 }
 
 .g-paragraphs {
   margin: 0 auto;
-  margin-block-start: 5rem;
   display: flex;
   padding: 18px 10rem 0 10rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 3rem;
+  max-width: fit-content;
   font-size: var(--fs-Large-20);
 }
 
-.txt-clr{
+.txt-clr {
   color: var(--Secondary) !important;
 }
 
-.center{
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.fs-20{
+
+.fs-20 {
   font-size: var(--fs-Large-20);
 }
 
-.w-full{
+.w-full {
   display: inline-block;
   width: 100%;
 }
@@ -347,7 +350,7 @@ header img {
   line-height: 32px;
   margin-block-start: 6rem;
 }
-
+.content p,
 .text-content p {
   color: #71717B;
   text-align: center;
@@ -357,6 +360,9 @@ header img {
   line-height: 28px;
   margin-block: 6rem;
   padding-inline: 86rem;
+}
+.content p{
+  padding-inline:4rem ;
 }
 
 .flex-row {
@@ -371,64 +377,66 @@ header img {
 }
 
 .cards {
+  display: flex;
   flex-wrap: wrap;
-  gap: 4rem;
+  gap: 3rem;
   justify-content: space-evenly;
   margin-block: 6rem;
 }
 
 .card {
-  border-radius: 45px;
-  border: 1px solid var(--Primary);
-  background: var(--Gray);
-  box-shadow: 0 5px 0 0 #191A23;
+  border-radius: 16px;
+  border: .5px solid var(--Main);
+  background: var(--Primary);
+  box-shadow: 0 5px 0 0 var(--Main);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 5rem;
   width: 100%;
-  min-width: 50rem;
-  max-width: 54.3rem;
-}
-
-.card[data-card-color="green"] {
-  background: var(--Secondary);
-}
-
-.card[data-card-color="Primary"] {
-  background-color: var(--Primary);
-}
-
-.card[data-card-color="Primary"] h2,
-.card[data-card-color="green"] h2 {
-  background-color: var(--Gray);
-}
-
-.card[data-card-color="Primary"] button {
-  color: var(--Gray)
-}
-
-.card-content div:last-child {
-  margin-block-start: 9.3rem;
+  min-width: 44rem;
+  max-width: 48rem;
 }
 
 .card-content h2 {
-  font-size: calc(var(--fs-Large-20) + 1rem);
+  font-size: var(--fs-Large-20);
   line-height: normal;
-}
-
-.card-link {
-  display: flex;
+  height: 8rem;
+  display: grid;
   align-items: center;
-  gap: 15px;
+  justify-content: flex-start;
 }
 
-.card-link button {
-  background: none;
-  border: none;
-  font-size: var(--fs-Medium-18);
-  color: var(--Primary);
-  cursor: pointer;
+.card-content .icon {
+  display: flex;
+  height: 48px;
+  width: 48px;
+  padding: 0 12px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+  margin-block-end: 3rem;
+  background: rgba(79, 57, 246, 0.10);
+}
+
+.card-content ul {
+  display: grid;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  margin: 0;
+  margin-block-start: 2rem;
+  padding: 0;
+}
+.card-content ul li{
+  list-style: disc;
+  color:#9F9FA9;
+  margin-inline-start: 10px;
+}
+.card-content ul li::marker{
+  color: var(--Secondary);
+
 }
 
 #tab-Menu {
@@ -472,12 +480,13 @@ header img {
   header {
     padding: 1rem 2rem;
   }
-  .container{
+
+  .container {
     padding: 4rem 3rem 0 3rem;
   }
 
   .g-paragraphs,
-  .block-content{
+  .block-content {
     min-width: 100%;
     padding: 2.5rem;
   }
