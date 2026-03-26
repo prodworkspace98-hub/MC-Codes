@@ -15,3 +15,4 @@ export async function loadComponent(id, file) {
     console.error(error);
   }
 }
+

@@ -156,6 +156,15 @@ body {
   font-size: 15px;
 }
 
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
 .main {
   width: 100%;
   margin: 0 auto;
@@ -250,6 +259,14 @@ header img {
 
 .project .btn img {
   margin-block: 0;
+}
+
+.btn {
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 .heading {
@@ -646,7 +663,7 @@ header img {
 }
 
 .footer__top {
-  border-top:1px solid #9F9FA950;
+  border-top: 1px solid #9F9FA950;
   display: flex;
   height: 10rem;
   padding-right: 0;
@@ -681,6 +698,42 @@ header img {
   padding: 4rem;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-effect:hover {
+  transition: all 0.6s ease;
+  transform: translateY(20px) scale(1.03);
+}
+
+.hero {
+  background: linear-gradient(270deg, #111, #333, #111);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0%
+  }
+
+  50% {
+    background-position: 100%
+  }
+
+  100% {
+    background-position: 0%
+  }
+}
+
 /*Media Queries Start*/
 /*<-==========================================->*/
 @media (min-width: 600px) {}
@@ -711,8 +764,8 @@ header img {
     overflow-x: hidden;
   }
 
-  header ,
-  .footer{
+  header,
+  .footer {
     padding: 1rem 2rem;
   }
 

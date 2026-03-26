@@ -1,15 +1,35 @@
 import { loadComponent } from "./core/component-loader.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await loadComponent("navbar", "navbar.html");
-  await loadComponent("hero", "hero.html");
-  await loadComponent("about", "about/about-section.html");
-  await loadComponent("services", "services/services-section.html");
-  await loadComponent("Skills", "Skills and Technologies/Skills and Tech.html");
-  await loadComponent("packages", "packages/service packages.html");
-  await loadComponent("Extra", "services/Extra service.html");
-  await loadComponent("AddOn", "services/AddOn service.html");
-  await loadComponent("Contact", "Contact details/Contact.html");
-  await loadComponent("footer", "footer.html");
+  await Promise.all([
+    loadComponent("navbar", "navbar.html"),
+    loadComponent("hero", "hero.html"),
+    loadComponent("about", "about/about-section.html"),
+    loadComponent("services", "services/services-section.html"),
+    loadComponent("Skills", "Skills and Technologies/Skills and Tech.html"),
+    loadComponent("packages", "packages/service packages.html"),
+    loadComponent("Extra", "services/Extra service.html"),
+    loadComponent("AddOn", "services/AddOn service.html"),
+    loadComponent("Contact", "Contact details/Contact.html"),
+    loadComponent("footer", "footer.html"),
+  ]);
+  initAnimations();
 });
- 
+
+function initAnimations() {
+  const elements = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
