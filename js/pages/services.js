@@ -6,7 +6,7 @@ async function init() {
   await loadComponent("services-hero", "services/services-hero.html");
   await loadComponent("services-list", "services/services-list.html");
 
-  loadServices(); // populate data
+  loadServices(); 
 }
 
 init();

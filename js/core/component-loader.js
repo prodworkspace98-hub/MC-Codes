@@ -1,18 +1,14 @@
-export async function loadComponent(id, file) {
+export async function LoadComponent(id, file) {
   try {
-    const element = document.getElementById(id);
-    if (!element) return;
+    const el = document.getElementById(id);
+    if (!el) return;
 
     const res = await fetch(`/components/${file}`);
-
-    if (!res.ok) {
-      throw new Error(`Component not found: ${file}`);
-    }
+    if (!res.ok) throw new Error(`Failed to load ${file}`);
 
     const html = await res.text();
-    element.innerHTML = html;
-  } catch (error) {
-    console.error(error);
+    el.innerHTML = html;
+  } catch (err) {
+    console.error(err);
   }
 }
-

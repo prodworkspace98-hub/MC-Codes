@@ -320,9 +320,9 @@ header img {
   width: 42rem;
   height: 37.6px;
   margin-block: 3rem;
-  padding: 8.8px 24.8px 0.8px 24.8px;
-  flex-direction: column;
+  padding: 1.2rem 24.8px 1.2rem 24.8px;
   align-items: center;
+  justify-content: center;
   border-radius: 5rem;
   border: 0.8px solid #3F3F47;
   background: rgba(39, 39, 42, 0.50);
