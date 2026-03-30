@@ -1,12 +1,7 @@
-import { loadComponent } from "../core/component-loader.js";
-import { loadServices } from "../features/services-engine.js";
-
-async function init() {
-  await loadComponent("navbar", "layout/navbar.html");
-  await loadComponent("services-hero", "services/services-hero.html");
-  await loadComponent("services-list", "services/services-list.html");
-
-  loadServices(); 
-}
-
-init();
+fetch("/data/services.json")
+  .then((res) => {
+    if (!res.ok) throw new Error("Failed tp load about data");
+    return res.json();
+  })
+  .then((data) => {})
+  .catch((err) => console.assert.error(err));

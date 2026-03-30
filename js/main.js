@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   initAnimations();
 
-  
   loadPageScripts();
 });
 
