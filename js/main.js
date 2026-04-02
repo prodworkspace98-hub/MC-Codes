@@ -1,69 +1,32 @@
 import { LoadComponent } from "./core/component-loader.js";
 import { observeElements } from "./engines/animation-engine.js";
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const components = [
-    ["navbar", "navbar.html"],
-    ["hero", "hero.html"],
-    ["about", "about/about-section.html"],
-    ["services", "services/services-section.html"],
-    ["skills", "skills/skills.html"],
-    ["packages", "packages/service-packages.html"],
-    ["extra", "services/extra-service.html"],
-    ["addon", "services/addon-service.html"],
-    ["contact", "contact/contact.html"],
-    ["footer", "footer.html"],
-  ];
+const componentsConfig = [
+  { id: "navbar", html: "navbar.html", script: "./navigation.js" },
+  { id: "hero", html: "hero.html", script: "./hero.js" },
+  { id: "about", html: "about/about-section.html", script: "./pages/about.js" },
+  { id: "services", html: "services/services-section.html", script: "./pages/services.js" },
+  { id: "skills", html: "skills/skills.html", script: "./pages/skills.js" },
+  { id: "packages", html: "packages/service-packages.html", script: "./pages/service-package.js" },
+  { id: "extra", html: "services/extra-service.html", script: "./pages/extra-service.js" },
+  { id: "addon", html: "services/addon-service.html", script: "./pages/addOn.js" },
+  { id: "contact", html: "contact/contact.html", script: "./pages/contact.js" },
+  { id: "footer", html: "footer.html", script: "./footer.js" },
+];
 
-  await Promise.all(components.map(([id, file]) => LoadComponent(id, file)));
+async function initComponents() {
+  await Promise.all(componentsConfig.map(c => LoadComponent(c.id, c.html)));
 
-  const staticElements = document.querySelectorAll(".fade-in");
-  observeElements(staticElements);
+  observeElements(document.querySelectorAll(".fade-in"));
 
-  loadPageScripts();
-});
-
-function loadPageScripts() {
-  if (document.getElementById("navbar")) {
-    import("./navigation.js");
-  }
-
-  if (document.getElementById("hero")) {
-    import("./hero.js");
-  }
-
-  if (document.getElementById("about-title")) {
-    import("./pages/about.js");
-  }
-
-  if (document.getElementById("services")) {
-    import("./pages/services.js");
-  }
-
-  if (document.getElementById("skills")) {
-    import("./pages/skills.js");
-  }
-
-  if (document.getElementById("skills")) {
-    import("./pages/service-package.js");
-  }
-  if (document.getElementById("extra")) {
-    import("./pages/extra-service.js");
-  }
-
-  if (document.getElementById("addon")) {
-    import("./pages/addOn.js");
-  }
-
-  if (document.getElementById("contact")) {
-    import("./pages/contact.js");
-  }
-
-  if (document.getElementById("footer")) {
-    import("./footer.js");
-  }
+  await Promise.all(
+    componentsConfig
+      .filter(c => document.getElementById(c.id))
+      .map(c => import(c.script))
+  );
 }
 
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
+document.addEventListener("DOMContentLoaded", initComponents);
+
+
+window.addEventListener("load", () => document.body.classList.add("loaded"));
