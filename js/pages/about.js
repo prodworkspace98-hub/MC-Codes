@@ -1,7 +1,7 @@
 fetch('/data/about.json')
   .then(res => {
     if (!res.ok) throw new Error("Failed to load about data");
-    return res.json();
+    return res.json();  
   })
   .then(data => {
 

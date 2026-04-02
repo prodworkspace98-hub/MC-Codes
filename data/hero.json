@@ -1,0 +1,29 @@
+{
+  "section": {
+    "intro": "Frontend Developer & UI Engineer",
+    "heading": ["Modern Frontend", "Development"],
+    "subheading": "Clean Code. Modern UI. Best Results.",
+    "description": "I build fast, responsive websites and scalable web applications using modern frontend technologies.",
+    "buttons": [
+      {
+        "text": "View My Work",
+        "href": "#",
+        "class": "btn btn-primary",
+        "icon": {
+          "src": "/assets/arrow-Icon.svg",
+          "alt": "Arrow Icon"
+        }
+      },
+      {
+        "text": "Hire Me",
+        "href": "#",
+        "class": "btn"
+      }
+    ],
+    "socials": [
+      { "src": "/assets/github.svg", "alt": "Github" },
+      { "src": "/assets/lindkedn.svg", "alt": "LinkedIn" },
+      { "src": "/assets/gmail.svg", "alt": "Gmail" }
+    ]
+  }
+}

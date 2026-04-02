@@ -1,0 +1,23 @@
+{
+  "section": {
+    "brand": {
+      "title": "MC Codes",
+      "tagline": "Modern Frontend Development"
+    },
+    "links": [
+      {
+        "icon": "/assets/github.svg",
+        "alt": "Github"
+      },
+      {
+        "icon": "/assets/lindkedn.svg",
+        "alt": "LinkedIn"
+      },
+      {
+        "icon": "/assets/gmail.svg",
+        "alt": "Gmail"
+      }
+    ],
+    "copyright": "© 2026 MC Codes. All rights reserved."
+  }
+}
