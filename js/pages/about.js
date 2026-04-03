@@ -15,7 +15,6 @@ fetch('/data/about.json')
       container.appendChild(p);
     });
 
-    // Highlight
     const highlight = document.createElement('p');
     const strong = document.createElement('strong');
 

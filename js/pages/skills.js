@@ -1,37 +1,52 @@
 import { observeElements } from "../engines/animation-engine.js";
 
-const newCards = [];
-
 fetch("/data/skills.json")
   .then((res) => {
     if (!res.ok) throw new Error("Failed to load skills data");
     return res.json();
   })
   .then((data) => {
-    document.getElementById("skill-heading").textContent =
-      data.section.content.heading;
+    const section = document.getElementById("skills");
+    if (!section) return;
 
-    const cards = document.getElementById("skill-cards");
+    const heading = section.querySelector("#skill-heading");
+    if (heading) heading.textContent = data.section.content.heading;
+
+    const container = section.querySelector("#skill-cards");
+    if (!container) return;
+
+    const fragment = document.createDocumentFragment();
+    const newCards = [];
 
     data.section.cards.forEach((card) => {
-      const elementCard = document.createElement("div");
-      elementCard.className = "card mx-w-generic fade-in";
+      const cardEl = document.createElement("div");
+      cardEl.className = "card mx-w-generic fade-in";
+      cardEl.dataset.divide = card.dataDivide;
 
-      elementCard.dataset.divide = card.dataDivide;
+      const content = document.createElement("div");
+      content.className = "card-content";
 
-      elementCard.innerHTML = `
-        <div class="card-content">
-          <h2>${card.title}</h2>
-          <div class="tabs-wrap">
-            ${card.tabs.map(tab => `<span class="tab">${tab}</span>`).join("")}
-          </div>
-        </div>
-      `;
+      const title = document.createElement("h2");
+      title.textContent = card.title;
 
-      cards.appendChild(elementCard);
-      newCards.push(elementCard);
+      const tabsWrap = document.createElement("div");
+      tabsWrap.className = "tabs-wrap";
+
+      card.tabs.forEach((tab) => {
+        const span = document.createElement("span");
+        span.className = "tab";
+        span.textContent = tab;
+        tabsWrap.appendChild(span);
+      });
+
+      content.append(title, tabsWrap);
+      cardEl.appendChild(content);
+
+      fragment.appendChild(cardEl);
+      newCards.push(cardEl);
     });
 
+    container.appendChild(fragment);
     observeElements(newCards);
   })
-  .catch((err) => console.error(err));
+  .catch(console.error);

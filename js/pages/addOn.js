@@ -1,39 +1,45 @@
 import { observeElements } from "../engines/animation-engine.js";
 
-const newCards = [];
-
 fetch("/data/addon.json")
-  .then(res => {
+  .then((res) => {
     if (!res.ok) throw new Error("Failed to load add-on services data");
     return res.json();
   })
-  .then(data => {
-  
-    const headingEl = document.querySelector(".add-on-table h1");
-    if (headingEl) headingEl.textContent = data.section.content.heading;
+  .then((data) => {
+    const section = document.querySelector(".add-on-table");
+    if (!section) return;
 
-    const tableContainer = document.querySelector(".add-on-table");
+    const heading = section.querySelector("h1");
+    if (heading) heading.textContent = data.section.content.heading;
 
-    data.section.groups.forEach(group => {
+    const fragment = document.createDocumentFragment();
+    const rowsToAnimate = [];
+
+    data.section.groups.forEach((group) => {
       const groupDiv = document.createElement("div");
       groupDiv.className = "w-full";
 
-      group.rows.forEach(row => {
+      group.rows.forEach((row) => {
         const rowDiv = document.createElement("div");
-        rowDiv.className = "row";
+        rowDiv.className = "row fade-in";
 
-        rowDiv.innerHTML = `
-          <div class="col">${row.service}</div>
-          <div class="col">${row.price}</div>
-        `;
+        const col1 = document.createElement("div");
+        col1.className = "col";
+        col1.textContent = row.service;
 
+        const col2 = document.createElement("div");
+        col2.className = "col";
+        col2.textContent = row.price;
+
+        rowDiv.append(col1, col2);
         groupDiv.appendChild(rowDiv);
+        rowsToAnimate.push(rowDiv);
       });
 
-      tableContainer.appendChild(groupDiv);
+      fragment.appendChild(groupDiv);
     });
 
-   
-    observeElements(document.querySelectorAll(".add-on-table .row"));
+    section.appendChild(fragment);
+    observeElements(rowsToAnimate);
   })
-  .catch(err => console.error(err));
+  .catch(console.error);

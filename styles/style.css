@@ -140,12 +140,13 @@ span {
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
   /* 62.5% of 16px (default browser size) = 10px */
 }
 
 body {
   font-family: var(--ff-Modern-Frontend), sans-serif;
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-regular);
   background: var(--Color1-Pure-Primary);
   line-height: 1.6;
   color: var(--Gray);
@@ -174,7 +175,7 @@ body.loaded {
 /* HEADER */
 /* ------------------------------ */
 header {
-  padding: 3rem 10rem;
+  padding: 2rem 10rem;
   background: var(--Color1-Pure-Primary);
 }
 
@@ -225,6 +226,7 @@ header img {
   text-align: center;
   padding: 2rem 3.5rem;
   border-radius: 1.4rem;
+  height: 7rem;
   font-size: var(--fs-Medium-16);
   border: .5px solid var(--Main);
   background: var(--Primary);
@@ -280,19 +282,19 @@ header img {
 }
 
 .container {
-  padding: 12rem 22rem 0 22rem;
+  padding: 12rem 16rem 0 16rem;
   width: 100%;
   margin-inline: auto;
 }
 
 .block-content {
-  padding: 48px 48px;
+  padding: 30px 26px;
   border-radius: 1.4rem;
   background: var(--Primary);
   margin-block: 5rem;
   width: 100%;
-  min-width: 120rem;
-  max-width: 145rem;
+  min-width: 80rem;
+  max-width: 100rem;
   margin-inline: auto;
   box-shadow: 0 5px 0 0 var(--Main);
 }
@@ -310,8 +312,7 @@ header img {
 
 .Header-Section {
   height: 100%;
-  padding-inline: 10rem;
-  padding-block-start: 3rem;
+  padding: 12rem 3rem;
   background: linear-gradient(180deg, #000 0%, #18181B 100%);
 }
 
@@ -343,8 +344,7 @@ header img {
   min-width: 100%;
   margin-inline: auto;
   text-align: center;
-  gap: 1.2rem;
-  padding-block: 18.5rem;
+  gap: 2.8rem;
 }
 
 .text-content .Sub-heading {
@@ -360,7 +360,7 @@ header img {
   text-align: center;
   font-size: calc(var(--fs-Large-20) + 4px);
   font-style: normal;
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-regular);
   line-height: 32px;
   margin-block-start: 6rem;
 }
@@ -371,10 +371,10 @@ header img {
   text-align: center;
   font-size: var(--fs-Large-20);
   font-style: normal;
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-regular);
   line-height: 28px;
-  margin-block: 6rem;
-  padding-inline: 86rem;
+  margin-block: 3rem;
+  padding-inline: 70rem;
 }
 
 .content p {
@@ -401,7 +401,7 @@ header img {
 }
 
 .card {
-  --set-width: 48rem;
+  --set-width: 38rem;
   border-radius: 16px;
   border: .5px solid var(--Main);
   background: var(--Primary);
@@ -410,7 +410,7 @@ header img {
   align-items: flex-start;
   justify-content: space-between;
   padding: 5rem;
-  min-width: 44rem;
+  min-width: 32rem;
   max-width: var(--set-width);
 }
 
@@ -418,6 +418,7 @@ header img {
   font-size: var(--fs-Large-20);
   line-height: normal;
   height: 8rem;
+  width: 100%;
   display: grid;
   align-items: center;
   justify-content: flex-start;
@@ -452,6 +453,7 @@ header img {
   font-weight: var(--fw-bold);
   line-height: 32px;
   margin-block: 2.5rem;
+  width: 100%;
 }
 
 .card-content ul li {
@@ -475,6 +477,7 @@ header img {
   background: rgba(79, 57, 246, 0.10);
 }
 
+.card-content,
 .tabs-wrap {
   display: flex;
   align-items: center;
@@ -521,9 +524,10 @@ header img {
 .package p {
   color: #9F9FA9;
   font-size: 16px;
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-regular);
   line-height: 24px;
   margin-block: 2rem;
+  width: 100%;
 }
 
 .package .btn {
@@ -648,12 +652,12 @@ header img {
 
 .mx-w-generic[data-divide="2"] {
   --set-width: 100%;
-  max-width: calc((var(--set-width) / 2) - 88px);
+  max-width: calc((var(--set-width) / 2) - 50px);
 }
 
 .mx-w-generic[data-divide="3"] {
   --set-width: 100%;
-  max-width: calc((var(--set-width) / 3) - 88px);
+  max-width: calc((var(--set-width) / 3) - 50px);
 }
 
 .footer {
@@ -690,12 +694,22 @@ header img {
 .footer__tagline {
   color: #9F9FA9;
   font-size: var(--fs-Small-12);
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-regular);
   line-height: 20px;
 }
 
 .footer__bottom {
   padding: 4rem;
+}
+
+.footer__links a {
+  display: inline-flex;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer__links a:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
 }
 
 .fade-in {
@@ -720,6 +734,14 @@ header img {
   animation: gradientMove 10s ease infinite;
 }
 
+#packages,
+#about,
+#services,
+#skills,
+#contact {
+  scroll-margin-top: 100px;
+}
+
 @keyframes gradientMove {
   0% {
     background-position: 0%
@@ -736,28 +758,88 @@ header img {
 
 /*Media Queries Start*/
 /*<-==========================================->*/
-@media (min-width: 600px) {}
-
-@media screen and (min-width: 992px) {
-  html {
-    font-size: 60%;
-  }
-}
 
 @media (max-width: 1800px),
 (max-width: 1700px),
-(max-width: 1600px),
-(-webkit-device-pixel-ratio: 1.1),
-(-webkit-device-pixel-ratio: 1.25),
-(-webkit-device-pixel-ratio: 1.5) {
+(max-width: 1600px) {
 
-  /*1800px*/
   html {
     font-size: 45%;
   }
+
+  .g-paragraphs,
+  .block-content {
+    min-width: 100%;
+    padding: 2.5rem;
+  }
+
+  .content p,
+  .text-content p {
+    padding-inline: 3rem;
+  }
+
+  .container,
+  .footer {
+    padding: 12rem 4rem 0 4rem;
+  }
+
+  .row,
+  .card {
+    width: 100%;
+    max-width: 60rem;
+  }
+
+  .row {
+    max-width: 100%;
+  }
+
+  .add-on-table {
+    height: auto;
+    padding: 6rem 8rem 6rem 6rem;
+  }
+
+  .add-on-table>div {
+    display: inline-block;
+  }
+
 }
 
-@media (max-width: 1220px) {}
+@media (max-width: 1220px) {
+
+  .g-paragraphs,
+  .block-content {
+    min-width: 100%;
+    padding: 2.5rem;
+  }
+
+  .content p,
+  .text-content p {
+    padding-inline: 3rem;
+  }
+
+  .container,
+  .footer {
+    padding: 12rem 4rem 0 4rem;
+  }
+
+  .row,
+  .mx-w-generic[data-divide="2"],
+  .mx-w-generic[data-divide="3"],
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .add-on-table {
+    height: auto;
+    padding: 6rem 8rem 6rem 6rem;
+  }
+
+  .add-on-table>div {
+    display: inline-block;
+  }
+
+}
 
 @media (max-width: 600px) {
   body {
@@ -901,7 +983,7 @@ header img {
   }
 
   .Header-Section {
-    padding-inline: 2rem;
+    padding: 2rem;
   }
 
   .text-content {
@@ -917,6 +999,51 @@ header img {
   .text-content h1,
   .text-content .Sub-heading {
     font-size: calc(var(--fs-Large-20) + 4rem);
+  }
+}
+
+@media (max-width:340px) {
+  html {
+    font-size: 40%;
+  }
+
+  .intro-bubble {
+    padding: 1.2rem 8px 1.2rem 8px;
+  }
+
+  .package h3,
+  .text-content h1,
+  .text-content .Sub-heading {
+    font-size: calc(var(--fs-Large-20) + 2rem);
+  }
+
+  .heading {
+    font-size: calc(var(--fs-Large-20) + 1.2rem);
+    margin-block: 2.5rem;
+  }
+
+  .text-content p,
+  .text-content h2 {
+    padding-inline: 2rem;
+  }
+
+  .g-paragraphs,
+  .block-content {
+    min-width: 100%;
+    padding: 2.5rem 1rem;
+  }
+
+  .content p {
+    padding-inline: 2rem;
+    margin-block: 3rem;
+  }
+
+  .cards .card {
+    padding: 5rem 3rem;
+  }
+
+  .col {
+    font-size: 14px;
   }
 }
 

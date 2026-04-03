@@ -1,16 +1,16 @@
 {
   "section": {
     "logo": {
-      "src": "assets/Image (MC Codes) - white.svg",
+      "src": "assets/Logo.svg",
       "alt": "Logo",
       "href": "#"
     },
     "menu": [
-      { "text": "About", "href": "#" },
-      { "text": "Services", "href": "/services.html" },
-      { "text": "Skills", "href": "#" },
-      { "text": "Pricing", "href": "/pricing.html" },
-      { "text": "Contact", "href": "/contact.html" }
+      { "text": "About", "href": "#about" },
+      { "text": "Services", "href": "#services" },
+      { "text": "Skills", "href": "#skills" },
+      { "text": "Pricing", "href": "#packages" },
+      { "text": "Contact", "href": "#contact" }
     ]
   }
 }

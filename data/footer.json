@@ -7,15 +7,18 @@
     "links": [
       {
         "icon": "/assets/github.svg",
-        "alt": "Github"
+        "alt": "Github",
+        "url": "https://github.com/prodworkspace98-hub"
       },
       {
         "icon": "/assets/lindkedn.svg",
-        "alt": "LinkedIn"
+        "alt": "LinkedIn",
+        "url": "https://www.linkedin.com/in/michael-l-a89535184/"
       },
       {
         "icon": "/assets/gmail.svg",
-        "alt": "Gmail"
+        "alt": "Gmail",
+        "url": "mailto:mccodeui@gmail.com"
       }
     ],
     "copyright": "© 2026 MC Codes. All rights reserved."

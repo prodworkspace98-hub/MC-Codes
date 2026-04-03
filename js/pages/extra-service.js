@@ -1,35 +1,51 @@
 import { observeElements } from "../engines/animation-engine.js";
 
-const newCards = [];
-
 fetch("/data/extra-service.json")
-  .then(res => {
+  .then((res) => {
     if (!res.ok) throw new Error("Failed to load extra services data");
     return res.json();
   })
-  .then(data => {
+  .then((data) => {
+    const section = document.getElementById("extra");
+    if (!section) return;
 
-    const cardsContainer = document.getElementById("extra-services-cards");
+    const container = section.querySelector("#extra-services-cards");
+    if (!container) return;
 
-    data.section.cards.forEach(card => {
-      const elementCard = document.createElement("div");
-      elementCard.className = "card fade-in card-effect";
+    const fragment = document.createDocumentFragment();
+    const newCards = [];
 
-      elementCard.innerHTML = `
-        <div class="card-content">
-          <h2>${card.title}</h2>
-          <span>${card.subtitle}</span>
-          <h3>${card.price}</h3>
-          <ul>
-            ${card.features.map(f => `<li>${f}</li>`).join("")}
-          </ul>
-        </div>
-      `;
+    data.section.cards.forEach((card) => {
+      const cardEl = document.createElement("div");
+      cardEl.className = "card fade-in card-effect";
 
-      cardsContainer.appendChild(elementCard);
-      newCards.push(elementCard);
+      const content = document.createElement("div");
+      content.className = "card-content";
+
+      const title = document.createElement("h2");
+      title.textContent = card.title;
+
+      const subtitle = document.createElement("span");
+      subtitle.textContent = card.subtitle;
+
+      const price = document.createElement("h3");
+      price.textContent = card.price;
+
+      const ul = document.createElement("ul");
+      card.features.forEach((f) => {
+        const li = document.createElement("li");
+        li.textContent = f;
+        ul.appendChild(li);
+      });
+
+      content.append(title, subtitle, price, ul);
+      cardEl.appendChild(content);
+
+      fragment.appendChild(cardEl);
+      newCards.push(cardEl);
     });
 
+    container.appendChild(fragment);
     observeElements(newCards);
   })
-  .catch(err => console.error(err));
+  .catch(console.error);
