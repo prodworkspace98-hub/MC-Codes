@@ -1,22 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  /*Colors Start*/
-  /*<-==========================================->*/
-  --Color1-Pure-Primary: #000000;
-  --Pure-White: hsl(0, 0%, 100%);
-  --Color-OffGray: #f4f4f4;
-  --Primary: #27272A;
-  --Secondary: #7C86FF;
-  --Tertiary: #C27AFF;
-  --Gray: #D4D4D8;
-  --Main: #18181B;
+  /* Colors Start */
+  /* <-==========================================-> */
 
-  --dark-blue: hsl(234, 12%, 34%);
-  --grayish-blue: hsl(229, 6%, 66%);
-  --light-gray: hsl(0, 0%, 98%);
+  --Color1-Pure-Primary: #020617;
+  --Pure-White: #F8FAFC;
+  --Color-OffGray: #E2E8F0;
 
-  /*Colors End*/
-  /*<-==========================================->*/
+  --Primary: #0F172A;
+  --Secondary: #22D3EE;
+  --Secondary-30: rgba(34, 211, 238, 0.3);
+  --Tertiary: #818CF8;
+
+  --Gray: #94A3B8;
+  --Main: #020617;
+
+  --dark-blue: #0F172A;
+  --grayish-blue: #64748B;
+  --light-gray: #F1F5F9;
+
+
+  /* Surface levels */
+  --surface-1: #020617;
+  --surface-2: #0F172A;
+  --surface-3: #111827;
+
+  /* Colors End */
+  /* <-==========================================-> */
   /*Font Start*/
   /*<-==========================================->*/
   --fs-Large-20: 20px;
@@ -24,7 +34,7 @@
   --fs-Normal-16: 16px;
   --fs-Small-12: 12px;
 
-  --ff-Modern-Frontend: "Modern Frontend";
+  --ff-inter: "Inter";
   --ff-fallback: sans-serif;
 
   /*Font End*/
@@ -145,9 +155,9 @@ html {
 }
 
 body {
-  font-family: var(--ff-Modern-Frontend), sans-serif;
+  font-family: var(--ff-inter), var(--ff-fallback);
   font-weight: var(--fw-regular);
-  background: var(--Color1-Pure-Primary);
+  background: var(--Main);
   line-height: 1.6;
   color: var(--Gray);
   height: 100%;
@@ -176,7 +186,9 @@ body.loaded {
 /* ------------------------------ */
 header {
   padding: 2rem 10rem;
-  background: var(--Color1-Pure-Primary);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 #navbar,
@@ -208,7 +220,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--Gray);
+  color: var(--grayish-blue);
   font-size: var(--fs-Large-20);
 }
 
@@ -222,16 +234,19 @@ header img {
 /* ------------------------------ */
 
 .btn {
-  height: 8rem;
   text-align: center;
   padding: 2rem 3.5rem;
   border-radius: 1.4rem;
   height: 7rem;
-  font-size: var(--fs-Medium-16);
-  border: .5px solid var(--Main);
-  background: var(--Primary);
-  box-shadow: 0 5px 0 0 var(--Main);
+  font-size: var(--fs-Normal-16);
+  height: 7rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.6);
   cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 0 0 var(--Main);
   text-decoration: none;
   color: var(--Pure-White);
   display: flex;
@@ -239,9 +254,27 @@ header img {
   justify-content: center;
 }
 
+.btn:hover {
+  background: rgba(15, 23, 42, 0.8);
+  transform: translateY(-1px);
+}
+
 .btn-primary {
-  background-color: #4F39F6;
+  background: var(--Secondary); /* #22D3EE */
+  color: #020617;
   border: none;
+  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  color: var(--Pure-White);
+  box-shadow: 0 12px 30px rgba(34, 211, 238, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(34, 211, 238, 0.2);
 }
 
 .btn img {
@@ -253,7 +286,7 @@ header img {
 
 .project .btn {
   background-color: var(--Pure-White);
-  color: #4F39F6;
+  color: var(--dark-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -263,12 +296,15 @@ header img {
   margin-block: 0;
 }
 
-.btn {
-  transition: all 0.2s ease;
-}
-
 .btn:hover {
   transform: translateY(-2px);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.15);
+}
+
+.btn:focus {
+  border-color: #22D3EE;
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2);
 }
 
 .heading {
@@ -278,11 +314,11 @@ header img {
   font-size: calc(var(--fs-Large-20) + 4rem);
   font-weight: var(--fw-bold);
   line-height: calc(var(--fs-Large-20) + 4rem);
-  margin-block: 5rem;
+  margin-block: 2.5rem;
 }
 
 .container {
-  padding: 12rem 16rem 0 16rem;
+  padding: 6rem 16rem 0 16rem;
   width: 100%;
   margin-inline: auto;
 }
@@ -313,20 +349,22 @@ header img {
 .Header-Section {
   height: 100%;
   padding: 12rem 3rem;
-  background: linear-gradient(180deg, #000 0%, #18181B 100%);
+  background: linear-gradient(180deg, var(--Color1-Pure-Primary) 0%, var(--Primary) 100%);
 }
 
 .intro-bubble {
   display: flex;
   width: 42rem;
   height: 37.6px;
-  margin-block: 3rem;
+  margin-block: 6rem;
   padding: 1.2rem 24.8px 1.2rem 24.8px;
   align-items: center;
   justify-content: center;
   border-radius: 5rem;
-  border: 0.8px solid #3F3F47;
-  background: rgba(39, 39, 42, 0.50);
+  border: 0.8px solid var(--Tertiary);
+  background: linear-gradient(135deg,
+      rgba(34, 211, 238, 0.08),
+      rgba(129, 140, 248, 0.08));
 }
 
 .text-content h1 {
@@ -344,7 +382,6 @@ header img {
   min-width: 100%;
   margin-inline: auto;
   text-align: center;
-  gap: 2.8rem;
 }
 
 .text-content .Sub-heading {
@@ -356,18 +393,18 @@ header img {
 }
 
 .text-content h2 {
-  color: #9F9FA9;
+  color: var(--grayish-blue);
   text-align: center;
   font-size: calc(var(--fs-Large-20) + 4px);
   font-style: normal;
   font-weight: var(--fw-regular);
   line-height: 32px;
-  margin-block-start: 6rem;
+  margin-block-start: 11rem;
 }
 
 .content p,
 .text-content p {
-  color: #71717B;
+  color: var(--Gray);
   text-align: center;
   font-size: var(--fs-Large-20);
   font-style: normal;
@@ -403,21 +440,27 @@ header img {
 .card {
   --set-width: 38rem;
   border-radius: 16px;
-  border: .5px solid var(--Main);
-  background: var(--Primary);
-  box-shadow: 0 5px 0 0 var(--Main);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 5rem;
+  padding: 2.5rem 4rem 2.5rem 4rem;
   min-width: 32rem;
   max-width: var(--set-width);
+  background: linear-gradient(135deg,
+      rgba(34, 211, 238, 0.08),
+      rgba(129, 140, 248, 0.08));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cards .card-content {
+  gap: 0;
 }
 
 .card-content h2 {
   font-size: var(--fs-Large-20);
   line-height: normal;
-  height: 8rem;
+  height: 6rem;
   width: 100%;
   display: grid;
   align-items: center;
@@ -433,15 +476,14 @@ header img {
   align-items: center;
   flex-shrink: 0;
   border-radius: 10px;
-  margin-block-end: 3rem;
-  background: rgba(79, 57, 246, 0.10);
+  background: var(--Secondary-30);
 }
 
 .card-content ul {
   display: grid;
   align-items: center;
   justify-content: flex-start;
-  gap: 2.5rem;
+  gap: 1.5rem;
   margin: 0;
   margin-block-start: 2rem;
   padding: 0;
@@ -458,7 +500,7 @@ header img {
 
 .card-content ul li {
   list-style: disc;
-  color: #9F9FA9;
+  color: var(--Gray);
   margin-inline-start: 10px;
 }
 
@@ -474,7 +516,8 @@ header img {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: rgba(79, 57, 246, 0.10);
+  background: var(--Secondary-30);
+  margin-inline-end: 2rem;
 }
 
 .card-content,
@@ -498,7 +541,7 @@ header img {
 
 .project .tab {
   border-radius: 5rem;
-  background: rgba(255, 255, 255, 0.20);
+  background: var(--Color-OffGray);
   margin-block: 5rem;
 }
 
@@ -514,7 +557,7 @@ header img {
   font-size: calc(var(--fs-Large-20) + 4rem);
   font-weight: var(--fw-bold);
   line-height: 56px;
-  background: linear-gradient(90deg, #7C86FF 0%, #C27AFF 100%);
+  background: linear-gradient(90deg, var(--Secondary) 0%, var(--Tertiary) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -522,7 +565,7 @@ header img {
 }
 
 .package p {
-  color: #9F9FA9;
+  color: var(--Gray);
   font-size: 16px;
   font-weight: var(--fw-regular);
   line-height: 24px;
@@ -537,9 +580,10 @@ header img {
 .recommended {
   position: relative;
   border-radius: 14px;
-  border: 1.6px solid #4F39F6;
-  background: #18181B;
-  box-shadow: 0 10px 15px -3px rgba(79, 57, 246, 0.20), 0 4px 6px -4px rgba(79, 57, 246, 0.20);
+  border: 1.6px solid var(--Tertiary);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(129, 140, 248, 0.08));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 15px -3px var(--Secondary-30), 0 4px 6px -4px var(--Tertiary);
 }
 
 .recommended::after {
@@ -551,7 +595,7 @@ header img {
   color: var(--Pure-White);
   font-size: var(--fs-Small-12);
   border-radius: 26843500px;
-  background: #4F39F6;
+  background: var(--Tertiary);
   padding: 4px 10px;
 }
 
@@ -586,7 +630,7 @@ header img {
 
 .cover-img {
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.20);
+  background: var(--grayish-blue);
   display: flex;
   width: 100%;
   height: 34rem;
@@ -599,7 +643,7 @@ header img {
 .row {
   display: flex;
   align-items: flex-start;
-  border-bottom: 1px solid #9F9FA9;
+  border-bottom: 1px solid var(--Color-OffGray);
   justify-content: space-between;
   height: 4.5rem;
   width: calc((100%/3) - 20px);
@@ -613,7 +657,10 @@ header img {
 
 .col:nth-child(2) {
   text-align: end;
-  color: #7C86FF;
+  background: linear-gradient(90deg, var(--Secondary) 0%, var(--Tertiary) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .txt-clr {
@@ -667,7 +714,7 @@ header img {
 }
 
 .footer__top {
-  border-top: 1px solid #9F9FA950;
+  border-top: 1px solid var(--grayish-blue);
   display: flex;
   height: 10rem;
   padding-right: 0;
@@ -692,7 +739,7 @@ header img {
 }
 
 .footer__tagline {
-  color: #9F9FA9;
+  color: var(--grayish-blue);
   font-size: var(--fs-Small-12);
   font-weight: var(--fw-regular);
   line-height: 20px;
@@ -729,7 +776,7 @@ header img {
 }
 
 .hero {
-  background: linear-gradient(270deg, #111, #333, #111);
+  background: linear-gradient(270deg, var(--Color1-Pure-Primary), var(--dark-blue), var(--Color1-Pure-Primary));
   background-size: 600% 600%;
   animation: gradientMove 10s ease infinite;
 }
@@ -740,6 +787,10 @@ header img {
 #skills,
 #contact {
   scroll-margin-top: 100px;
+}
+
+#contact .card-content h2 {
+  height: 4rem;
 }
 
 @keyframes gradientMove {
@@ -852,13 +903,22 @@ header img {
   }
 
   .container {
-    padding: 4rem 3rem 0 3rem;
+    padding: 4rem 2rem 0 2rem;
   }
 
   .g-paragraphs,
   .block-content {
     min-width: 100%;
-    padding: 2.5rem;
+    padding: 1.5rem;
+  }
+
+  .heading {
+    font-size: calc(var(--fs-Large-20) + 2rem);
+    line-height: calc(var(--fs-Large-20) + 2rem);
+  }
+
+  .block-content {
+    margin-block: 1rem;
   }
 
   .package {
@@ -867,10 +927,25 @@ header img {
 
   .cards {
     justify-content: center;
+    margin-block: 2rem;
   }
 
   .cards .card {
     margin-block: 2rem;
+    padding: 4rem;
+  }
+
+  .card-content .icon {
+    margin-block-end: 2rem;
+  }
+
+  #contact .card-content h2 {
+    height: 4rem;
+
+  }
+
+  .icon-badge {
+    margin-inline-end: 2rem;
   }
 
   .add-on-table {
@@ -883,6 +958,7 @@ header img {
   .add-on-table .col,
   .add-on-table .row {
     width: 100%;
+    font-size: 15px;
   }
 
   .add-on-table .row {
@@ -982,6 +1058,11 @@ header img {
     transition: 450ms all ease-in;
   }
 
+  .intro-bubble {
+    width: 40rem;
+    padding: 1.2rem 12px 1.2rem 12px;
+  }
+
   .Header-Section {
     padding: 2rem;
   }
@@ -993,12 +1074,23 @@ header img {
 
   .text-content p,
   .text-content h2 {
-    padding-inline: 8rem;
+    padding-inline: 2rem;
+  }
+
+  .text-content {
+    gap: 0;
   }
 
   .text-content h1,
   .text-content .Sub-heading {
-    font-size: calc(var(--fs-Large-20) + 4rem);
+    font-size: calc(var(--fs-Large-20) + 3rem);
+  }
+
+  #contact .heading,
+  #packages .heading,
+  #skills .heading,
+  #services .heading {
+    margin: 0;
   }
 }
 
@@ -1019,7 +1111,6 @@ header img {
 
   .heading {
     font-size: calc(var(--fs-Large-20) + 1.2rem);
-    margin-block: 2.5rem;
   }
 
   .text-content p,

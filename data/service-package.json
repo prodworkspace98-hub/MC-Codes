@@ -11,12 +11,11 @@
         "divide": 3,
         "recommended": false,
         "features": [
-          "Custom UI/UX design",
-          "Advanced features",
-          "API integrations",
-          "E-commerce functionality",
-          "Custom animations",
-          "Ongoing support"
+          "5 pages",
+          "Responsive design",
+          "Contact form",
+          "Basic SEO",
+          "2 weeks delivery"
         ],
         "button": {
           "text": "Get Started",
@@ -30,12 +29,12 @@
         "divide": 3,
         "recommended": true,
         "features": [
-          "Custom UI/UX design",
-          "Advanced features",
-          "API integrations",
-          "E-commerce functionality",
-          "Custom animations",
-          "Ongoing support"
+          "Custom design",
+          "CMS integration",
+          "Performance optimization",
+          "Analytics setup",
+          "Mobile-first approach",
+          "3 weeks delivery"
         ],
         "button": {
           "text": "Get Started",

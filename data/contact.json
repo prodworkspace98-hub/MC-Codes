@@ -10,7 +10,7 @@
           "src": "/assets/Icon Email me.svg",
           "alt": "Email"
         },
-        "text": "mccodeui@gmai.com"
+        "text": "mccodeui@gmail.com"
       },
       {
         "title": "Location",
@@ -23,7 +23,7 @@
     ],
     "cta": {
       "text": "Get In Touch",
-      "href": "mailto:mccodeui@gmai.com",
+      "href": "mailto:mccodeui@gmail.com",
       "class": "btn btn-primary"
     }
   }
