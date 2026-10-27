@@ -8,15 +8,15 @@
         "rows": [
           {
             "service": "Emergency bug fix",
-            "price": "R900 - R2,500"
+            "price": "R250 - R1,250/hr"
           },
           {
             "service": "Landing page build",
-            "price": "R1,500 - R4,000"
+            "price": "R1,250 - R3,000/hr"
           },
           {
             "service": "Website redesign",
-            "price": "R5,000 - R20,000"
+            "price": "R2,000 - R10,000/hr"
           }
         ]
       },
@@ -24,15 +24,15 @@
         "rows": [
           {
             "service": "SEO optimization",
-            "price": "R1,500 - R5,000"
+            "price": "R750 - R3,000/hr"
           },
           {
             "service": "Speed optimization",
-            "price": "R1,000 - R3,000"
+            "price": "R750 - R3,000/hr"
           },
           {
             "service": "New feature",
-            "price": "R500 - R1,100/hr"
+            "price": "R250 - R1,000/hr"
           }
         ]
       }

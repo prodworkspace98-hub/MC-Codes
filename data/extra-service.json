@@ -7,7 +7,7 @@
       {
         "title": "Maintenance Services",
         "subtitle": "Monthly Support Plans",
-        "price": "R500-1000",
+        "price": "R250-1,000",
         "features": [
           "Bug fixes & updates",
           "Security patches",
@@ -18,7 +18,7 @@
       {
         "title": "Hourly Consulting",
         "subtitle": "Flexible Support",
-        "price": "R1,000-3,000 /HR",
+        "price": "R750-1,500 /HR",
         "features": [
           "Code review",
           "Technical consulting",
@@ -29,7 +29,7 @@
       {
         "title": "Emergency Support",
         "subtitle": "24/7 Available",
-        "price": "R3,500-4,000",
+        "price": "R1,500-3,000",
         "features": [
           "Urgent bug fixes",
           "Site recovery",
@@ -40,7 +40,7 @@
       {
         "title": "Retainer Package",
         "subtitle": "Long-term Partnership",
-        "price": "R25,000-45,000+",
+        "price": "R15,000-25,000+",
         "features": [
           "Dedicated developer time",
           "Ongoing development",

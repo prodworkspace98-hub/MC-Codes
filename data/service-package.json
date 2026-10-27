@@ -6,7 +6,7 @@
     "cards": [
       {
         "title": "Starter Website",
-        "price": "R6,500",
+        "price": "R3,500",
         "description": "Perfect for small businesses and startups",
         "divide": 3,
         "recommended": false,
@@ -24,7 +24,7 @@
       },
       {
         "title": "Business Website",
-        "price": "R12,000",
+        "price": "R5,000",
         "description": "For growing businesses that need more",
         "divide": 3,
         "recommended": true,
@@ -43,7 +43,7 @@
       },
       {
         "title": "Premium Website",
-        "price": "R25,000+",
+        "price": "R15,000+",
         "description": "Full-scale custom web applications",
         "divide": 3,
         "recommended": false,
